@@ -1,4 +1,34 @@
-# Changelog
+# AMD ROCm Fork Changelog
+
+> **Note:** This is the changelog for AMD-specific enhancements. For upstream MONAI changes, see the main changelog below.
+
+---
+
+## v1.3.0-rocm-test (2026-04-07)
+
+**Status:** TEST RELEASE - Workflow Validation
+
+**Base Version:** MONAI v1.3.0 stable
+
+**AMD Enhancements:**
+- Initial ROCm fork test release
+- Workflow validation for fork management process
+- Documentation structure for AMD-specific features
+
+**ROCm Support:**
+- Target: ROCm 7.0, 7.2
+- Planned validation on MI300, MI355 GPUs
+
+**Test Goals:**
+- Validate fork creation and configuration
+- Test documentation workflow
+- Verify issue template functionality
+- Simulate release process
+
+---
+
+# Original MONAI Changelog
+
 All notable changes to MONAI are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).

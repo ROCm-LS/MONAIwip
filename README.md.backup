@@ -17,61 +17,6 @@
 [![codecov](https://codecov.io/gh/Project-MONAI/MONAI/branch/dev/graph/badge.svg?token=6FTC7U1JJ4)](https://codecov.io/gh/Project-MONAI/MONAI)
 [![monai Downloads Last Month](https://assets.piptrends.com/get-last-month-downloads-badge/monai.svg 'monai Downloads Last Month by pip Trends')](https://piptrends.com/package/monai)
 
----
-
-# 🧪 WORKFLOW VALIDATION - AMD ROCm Fork
-
-**⚠️ This fork is being validated for AMD ROCm workflow. May be renamed to ROCm-LS/MONAI upon completion.**
-
-This is AMD's optimized fork of [Project MONAI](https://github.com/Project-MONAI/MONAI) 
-with ROCm GPU support and performance optimizations for AMD hardware.
-
-## AMD-Specific Features
-- ROCm/HIP compatibility for CUDA extensions
-- AMD GPU optimizations for medical imaging workloads
-- Tested and validated on AMD Instinct GPUs
-
-## ROCm Compatibility
-
-| MONAI Fork Version | Based on MONAI | Supported ROCm Versions | Tested GPUs  |
-|--------------------|----------------|-------------------------|--------------|
-| v1.3.0-rocm-test   | v1.3.0         | ROCm 7.0, 7.2           | MI300, MI355 |
-
-*This table will be updated with each release*
-
-## Installation (Test Fork)
-
-### Prerequisites
-- AMD GPU with ROCm support
-- ROCm 7.0+ installed
-- Python 3.8+
-
-### Install from source
-```bash
-git clone https://github.com/ROCm-LS/MONAIwip.git
-cd MONAIwip
-pip install -e .
-```
-
-## Upstream Sync
-
-This test fork is rebased on MONAI stable releases. See [CHANGELOG.md](CHANGELOG.md) 
-for the base version and AMD-specific changes.
-
-## Reporting Issues
-
-**Note: This fork is under workflow validation**
-
-- **AMD/ROCm specific issues:** Report here in ROCm-LS/MONAIwip Issues
-- **General MONAI issues:** Report to [upstream MONAI](https://github.com/Project-MONAI/MONAI/issues)
-
-## Contributing
-
-AMD-specific contributions are welcome. For general MONAI improvements, 
-please contribute to the [upstream project](https://github.com/Project-MONAI/MONAI).
-
----
-
 MONAI is a [PyTorch](https://pytorch.org/)-based, [open-source](https://github.com/Project-MONAI/MONAI/blob/dev/LICENSE) framework for deep learning in healthcare imaging, part of the [PyTorch Ecosystem](https://pytorch.org/ecosystem/).
 Its ambitions are as follows:
 

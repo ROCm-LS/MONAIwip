@@ -1,34 +1,50 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+name: Bug Report (AMD/ROCm)
+about: Report AMD or ROCm specific issues
+title: '[BUG] '
+labels: ['bug', 'amd-specific']
 ---
 
-**Describe the bug**
+**⚠️ Note: This is a TEST FORK for workflow validation**
+
+For production issues, please use the ROCm-LS/MONAI fork when available.
+
+## Describe the bug
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Install '....'
-3. Run commands '....'
+## Environment
+- **ROCm Version:** [e.g., 6.0]
+- **GPU:** [e.g., MI250]
+- **MONAI Fork Version:** [e.g., v1.3.0-rocm-test]
+- **Python Version:** [e.g., 3.10]
+- **PyTorch Version:** [e.g., 2.0.0]
 
-**Expected behavior**
+## To Reproduce
+Steps to reproduce the behavior:
+1. 
+2. 
+3. 
+
+## Expected behavior
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Actual behavior
+What actually happened.
 
-**Environment**
+## Is this issue AMD/ROCm specific?
+- [ ] Yes, only happens with AMD GPUs/ROCm
+- [ ] No, might be a general MONAI issue
+- [ ] Unsure
 
-Ensuring you use the relevant python executable, please paste the output of:
-
+## Code snippet (if applicable)
+```python
+# Minimal code to reproduce
 ```
-python -c "import monai; monai.config.print_debug_info()"
+
+## Error message/traceback
+```
+Paste error message here
 ```
 
-**Additional context**
+## Additional context
 Add any other context about the problem here.
