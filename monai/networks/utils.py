@@ -740,6 +740,14 @@ def convert_to_onnx(
             f = temp_file.name
         else:
             f = filename
+        # Check if model is a ScriptModule and PyTorch version >= 2.6
+        # In PyTorch 2.6+, torch.onnx.export doesn't support ScriptModule directly
+        # We need to use the legacy exporter via dynamo=False
+        is_script_module = isinstance(model_to_export, torch.jit.ScriptModule)
+        pytorch_version = tuple(int(x) for x in torch.__version__.split(".")[:2] if x.isdigit())
+        if is_script_module and pytorch_version >= (2, 6) and "dynamo" not in torch_versioned_kwargs:
+            torch_versioned_kwargs["dynamo"] = False
+
         torch.onnx.export(
             model_to_export,
             onnx_inputs,

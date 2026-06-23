@@ -3,15 +3,40 @@
 __pycache__/
 docs/
 
-.vscode
-.git
-.mypy_cache
-.ruff_cache
-.pytype
+# Version control
+.git/
+.gitignore
+.github/
+
+# Coverage & test artifacts
 .coverage
 .coverage.*
 .coverage/
 coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.whl
+*.egg
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc large directories
+runs/
+merged.zarr/
+test.zarr/
+
+# Config files not needed in image
 .readthedocs.yml
+*.toml
 
 !README.md

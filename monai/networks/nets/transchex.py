@@ -25,6 +25,7 @@ load_tf_weights_in_bert = optional_import("transformers", name="load_tf_weights_
 cached_file = optional_import("transformers.utils", name="cached_file")[0]
 BertEmbeddings = optional_import("transformers.models.bert.modeling_bert", name="BertEmbeddings")[0]
 BertLayer = optional_import("transformers.models.bert.modeling_bert", name="BertLayer")[0]
+BertConfig = optional_import("transformers", name="BertConfig")[0]
 
 __all__ = ["BertPreTrainedModel", "BertAttention", "BertOutput", "BertMixedLayer", "Pooler", "MultiModal", "Transchex"]
 
@@ -219,7 +220,7 @@ class MultiModal(BertPreTrainedModel):
 
         """
         super().__init__()
-        self.config = type("obj", (object,), bert_config)
+        self.config = BertConfig(**bert_config)
         self.embeddings = BertEmbeddings(self.config)
         self.language_encoder = nn.ModuleList([BertLayer(self.config) for _ in range(num_language_layers)])
         self.vision_encoder = nn.ModuleList([BertLayer(self.config) for _ in range(num_vision_layers)])
