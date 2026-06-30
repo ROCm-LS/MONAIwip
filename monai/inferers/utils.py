@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import itertools
+import os
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from typing import Any
 
@@ -258,6 +259,8 @@ def sliding_window_inference(
                 win_condition = condition[s0_idx].to(sw_device)
                 kwargs["condition"] = win_condition
 
+        if os.environ.get("PYTORCH_MIOPEN_SUGGEST_NHWC") == "1":
+            torch._dynamo.maybe_mark_dynamic(win_data, 0)
         if with_coord:
             seg_prob_out = predictor(win_data, unravel_slice, *args, **kwargs)
         else:
