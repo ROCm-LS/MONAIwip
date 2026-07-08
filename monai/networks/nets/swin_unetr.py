@@ -537,7 +537,7 @@ class WindowAttention(nn.Module):
 
         bias = (
             self.relative_position_bias_table[
-                self.relative_position_index[:n, :n].reshape(-1)  # type: ignore[operator]
+                self.relative_position_index.clone()[:n, :n].reshape(-1)  # type: ignore[operator]
             ]
             .reshape(n, n, -1)
             .permute(2, 0, 1)

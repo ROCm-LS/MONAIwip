@@ -12,7 +12,6 @@
 from __future__ import annotations
 
 import itertools
-import os
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from typing import Any
 
