@@ -186,7 +186,7 @@ class TestDynUNetDeepSupervision(unittest.TestCase):
 
 
 class TestDynUNetGemmTranspose(unittest.TestCase):
-    """AMD MI300X: use_gemm_transpose must thread from DynUNet down to every
+    """AMD MI GPUs: use_gemm_transpose must thread from DynUNet down to every
     decoder upsample block (this flag is what the ROCm bundle overlay flips)."""
 
     def test_flag_threaded_to_upsample_blocks(self):

@@ -110,7 +110,7 @@ class TestUpBlock(unittest.TestCase):
 
 
 class TestUpBlockGemmTranspose(unittest.TestCase):
-    """AMD MI300X: the opt-in pixel-shuffle GEMM decomposition of the decoder
+    """AMD MI GPUs: the opt-in pixel-shuffle GEMM decomposition of the decoder
     ConvTranspose3d (kernel_size == stride) must be numerically identical to the
     stock transposed convolution it replaces."""
 
