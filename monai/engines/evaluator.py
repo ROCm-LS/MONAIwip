@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+import time
 import warnings
 from collections.abc import Callable, Iterable, Sequence
 from typing import TYPE_CHECKING, Any
@@ -322,12 +323,17 @@ class SupervisedEvaluator(Evaluator):
         # put iteration outputs into engine.state
         engine.state.output = {Keys.IMAGE: inputs, Keys.LABEL: targets}
         # execute forward computation
+        torch.cuda.synchronize()
+        _t0 = time.perf_counter()
         with engine.mode(engine.network):
             if engine.amp:
                 with torch.autocast("cuda", **engine.amp_kwargs):
                     engine.state.output[Keys.PRED] = engine.inferer(inputs, engine.network, *args, **kwargs)
             else:
                 engine.state.output[Keys.PRED] = engine.inferer(inputs, engine.network, *args, **kwargs)
+        torch.cuda.synchronize()
+        _iter = engine.state.iteration
+        print(f"[e2e_timing] iter={_iter} inferer_ms={1000*(time.perf_counter()-_t0):.1f}")
         # copy back meta info
         if self.compile:
             if inputs_meta is not None:
